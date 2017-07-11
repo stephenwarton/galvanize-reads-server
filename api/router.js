@@ -3,8 +3,7 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/book', (req, res) => {
-  console.log('hello');
+router.get('/books', (req, res) => {
 	queries.getAllBooks().then(books => {
 		res.json(books);
 	});
