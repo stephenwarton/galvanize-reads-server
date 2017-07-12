@@ -10,6 +10,12 @@ router.get('/books', (req, res) => {
   });
 });
 
+router.get('/books/:id', (req,res,next) => {
+	queries.getBookById(req.params.id).then(book => {
+		res.json(book);
+	});
+});
+
 router.post('/books', (req, res, next) => {
   if (valid.book(req.body)) {
 
