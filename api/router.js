@@ -10,9 +10,21 @@ router.get('/books', (req, res) => {
   });
 });
 
+router.get('/authors', (req, res) => {
+  queries.getAllAuthors().then(authors => {
+    res.json(authors);
+  });
+});
+
 router.get('/books/:id', (req,res,next) => {
 	queries.getBookById(req.params.id).then(book => {
 		res.json(book);
+	});
+});
+
+router.get('/authors/:id', (req,res,next) => {
+	queries.getAuthorById(req.params.id).then(author => {
+		res.json(author);
 	});
 });
 
