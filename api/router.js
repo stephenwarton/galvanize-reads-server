@@ -46,4 +46,15 @@ router.post('/books', (req, res, next) => {
   }
 });
 
+router.post('/book_author', (req, res, next) => {
+    let bookAuthor = {
+      author_id: req.body.author_id,
+      book_id: req.body.book_id
+    };
+
+    queries.createBookAuthor(bookAuthor).then(result => {
+      res.json(result);
+    });
+});
+
 module.exports = router;
