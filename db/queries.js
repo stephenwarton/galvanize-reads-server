@@ -4,6 +4,9 @@ module.exports = {
 
   getAllBooks() {
     return knex('book');
+    // .join('book_author', 'book_author.book_id', 'book.id')
+    // .join('author', 'author.id', 'book_author.author_id')
+    // .select('book_id');
   },
 
   getAllAuthors() {
