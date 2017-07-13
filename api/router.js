@@ -69,4 +69,10 @@ router.delete('/books/:id', function(req, res, next) {
   });
 });
 
+router.put('/books/:id', (req, res, next) => {
+	queries.updateBook(req.params.id, req.body).then(response => {
+		res.json(response);
+	});
+});
+
 module.exports = router;
