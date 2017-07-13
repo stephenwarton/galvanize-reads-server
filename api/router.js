@@ -28,6 +28,12 @@ router.get('/authors/:id', (req,res,next) => {
 	});
 });
 
+router.get('/books/:id/authors', (req,res,next) => {
+	queries.getAuthorsByBookId(req.params.id).then(authors => {
+		res.json(authors);
+	});
+});
+
 router.post('/books', (req, res, next) => {
   if (valid.book(req.body)) {
 
@@ -55,6 +61,12 @@ router.post('/book_author', (req, res, next) => {
     queries.createBookAuthor(bookAuthor).then(result => {
       res.json(result);
     });
+});
+
+router.delete('/books/:id', function(req, res, next) {
+  queries.deleteBookById(req.params.id).then(response => {
+  res.json(response);
+  });
 });
 
 module.exports = router;
